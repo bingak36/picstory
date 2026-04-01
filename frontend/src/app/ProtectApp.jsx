@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../components/layouts/Header'
-import Footer from '../components/layouts/Footer'
+import Header from '../components/layout/Header'
+import Footer from '../components/layout/Footer'
 const ProtectApp = () => {
   return (
     <>

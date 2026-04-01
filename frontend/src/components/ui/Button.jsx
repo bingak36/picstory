@@ -1,11 +1,15 @@
 import React from 'react'
-
-const Button = (text, className, icons) => {
+import './Button.scss'
+const Button = ({
+  text,
+  className,
+  onClick,
+  icons}) => {
   return (
-    <div className={`btn ${className}`}>
+    <button onClick={onClick} className={`btn ${className}`}>
       {text}
-      {icons && <img src='/image/arrow.svg'/>}
-    </div>
+      {icons && <img src='/images/arrow.svg'/>}
+    </button>
   )
 }
 

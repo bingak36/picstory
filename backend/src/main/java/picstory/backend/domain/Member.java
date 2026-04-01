@@ -18,52 +18,50 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,length = 50)
+    @Column(nullable = false, length = 50)
     private String name;
 
 
-    @Column(nullable = false,unique = true,length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(nullable = false,length = 200)
+    @Column(nullable = false, length = 200)
     private String passwordHash;
 
-    @Column(unique = true,length = 30)
+    @Column(unique = true, length = 30)
     private String phone;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false,length = 20)
+    @Column(nullable = false, length = 20)
     private MemberStatus status;
 
     @Column(nullable = false)
-    private  boolean emailVerified;
+    private boolean emailVerified;
 
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     @PrePersist
-    public void onCreate(){
+    public void onCreate() {
         this.createdAt = LocalDateTime.now();
-        this.updatedAt=this.createdAt;
-        if(this.status==null) this.status=MemberStatus.ACTIVE;
+        this.updatedAt = this.createdAt;
+        if (this.status == null) this.status = MemberStatus.ACTIVE;
     }
+
     @PreUpdate
-    public void  onUpdate(){
-        this.updatedAt=LocalDateTime.now();
+    public void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
 
-
-
-
-    public Member(String name, String email,String passwordHash, String phone){
-        this.name=name;
-        this.email=email;
-        this.passwordHash=passwordHash;
-        this.phone=phone;
-        this.status=MemberStatus.ACTIVE;
-        this.emailVerified=false;
+    public Member(String name, String email, String passwordHash, String phone) {
+        this.name = name;
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.phone = phone;
+        this.status = MemberStatus.ACTIVE;
+        this.emailVerified = false;
     }
 
     public void changeStatus(MemberStatus status) {

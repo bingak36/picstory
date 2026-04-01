@@ -5,7 +5,7 @@ import picstory.backend.domain.MemberStatus;
 
 import java.time.LocalDateTime;
 
-public record MemberResponse (
+public record MemberResponse(
         Long id,
         String name,
         String email,
@@ -14,7 +14,7 @@ public record MemberResponse (
         boolean emailVerified,
         LocalDateTime createdAt
 ) {
-    public static MemberResponse from(Member m){
+    public static MemberResponse from(Member m) {
         return new MemberResponse(
                 m.getId(),
                 m.getName(),

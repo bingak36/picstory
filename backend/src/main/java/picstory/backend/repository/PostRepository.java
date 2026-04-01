@@ -1,4 +1,13 @@
 package picstory.backend.repository;
 
-public class PostRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import picstory.backend.domain.Post;
+
+import java.util.List;
+
+public interface PostRepository extends JpaRepository<Post,Long> {
+
+    List<Post> findAllByOrderByCreatedAtDesc();
+
+    List<Post> findByMember_IdOrderByCreatedAtDesc(Long memberId);
 }

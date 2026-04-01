@@ -5,8 +5,8 @@ import PublicLayout from './PublicLayout'
 import Landing from '../pages/landing/Landing'
 import Login from '../pages/auth/Login'
 import Signup from '../pages/auth/Signup'
-import Dashboard from '../pages/dashboard/Dashboard'
 import ProtectRoute from '../store/ProtectRoute'
+import PostDashboard from '../pages/posts/PostDashboard'
 export const router = createBrowserRouter([
   {
     // 공개영역
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
     children:[
       {
         index:true,
-        element:<Dashboard/>
+        element:<PostDashboard/>
       }
     ]
   }

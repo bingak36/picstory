@@ -16,7 +16,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping
-    public Long signup(@RequestBody SignupRequest request){
+    public Long signup(@RequestBody SignupRequest request) {
         return memberService.signup(
                 request.name(),
                 request.email(),
@@ -26,7 +26,7 @@ public class MemberController {
     }
 
     @GetMapping
-    public List<MemberResponse> List(){
+    public List<MemberResponse> List() {
         return memberService.findAll()
                 .stream().
                 map(MemberResponse::from)
